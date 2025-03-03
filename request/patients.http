@@ -1,0 +1,36 @@
+POST http://localhost:3000/api/patients
+Content-Type: application/json
+
+{
+    "dni": "A33333333",
+    "firstName": "Guillermo",
+    "lastName": "Gomez",
+    "patientRecord" : "1AWQE",
+    "healthCare": "OSDE",
+    "whatsApp" : "121322424",
+    "email": "Text@gmail.com"
+}
+
+###
+GET http://localhost:3000/api/patients
+
+###
+
+GET http://localhost:3000/api/patients/88a72e65-e2e1-4750-992a-aabf77c10894
+
+###
+PUT http://localhost:3000/api/patients/88a72e65-e2e1-4750-992a-aabf77c10894
+Content-Type: application/json
+
+{
+    "dni": "A33333333",
+    "firstName": "Guillermo",
+    "lastName": "Gomez",
+    "patientRecord" : "1AWQE",
+    "healthCare": "OSDE",
+    "whatsApp" : "121322424",
+    "email": "Text@gmail.com"
+}
+
+###
+DELETE http://localhost:3000/api/patients/1856fb7d-5c8f-4f88-b731-ffa2dae2e3cf

@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  DEV
+  MEDIC
+  PATIENT
+}
+
+model User {
+  id String @id @default(uuid()) 
+  email String @unique
+  role Role @default(DEV)
+  relatedId String?
+  createdAt  DateTime @default(now())
+}
+
+model Medic {
+  id String @id @default(uuid())
+  medicRecord String @unique
+  firstName String?
+  lastName String?
+  whatsApp String?
+  email String?
+  studies Study[]
+  createdAt  DateTime @default(now())
+}
+
+model Patient {
+  id String @id @default(uuid())
+  dni String @unique
+  firstName String?
+  lastName String?
+  patientRecord String?
+  healthCare String?
+  whatsApp String?
+  email String?
+  studies Study[]
+  createdAt  DateTime @default(now())
+}
+
+model Study {
+  id String @id @default(uuid())
+  date DateTime?
+  medicId String
+  medic Medic @relation(fields: [medicId], references: [id])
+  patientId String
+  patient Patient @relation(fields: [patientId], references: [id])
+  diagnosticText String?
+  accessCode String?
+  pdfUrl String?
+  expirationDate DateTime?
+  imagesURL ImagesURL[]
+  createdAt  DateTime @default(now())
+}
+
+
+
+model ImagesURL {
+  id String @id @default(uuid())
+  studyId String
+  study Study @relation(fields: [studyId], references:[id])
+  url String
+  createdAt  DateTime @default(now())
+}

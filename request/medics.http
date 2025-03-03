@@ -1,0 +1,30 @@
+GET http://localhost:3000/api/medics
+
+###
+GET http://localhost:3000/api/medics/4607f7c0-06a1-4f52-a5ca-d1acd0d049b8
+
+###
+POST http://localhost:3000/api/medics
+Content-Type: application/json
+
+{
+    "medicRecord":"12345678",
+    "firstName":"Medico firstName 1",
+    "lastName":"Medico lastName 1",
+    "whatsApp": "1234567",
+    "email": "email123456"
+}
+
+###
+PUT http://localhost:3000/api/medics/4607f7c0-06a1-4f52-a5ca-d1acd0d049b8
+Content-Type: application/json
+
+{
+    "medicRecord":"242424242",
+    "firstName":"Medico firstName 1u",
+    "lastName":"Medico lastName 1u",
+    "whatsApp": "1234567",
+    "email": "email123456"
+}
+###
+DELETE http://localhost:3000/api/medics/953dbd17-3153-4927-abee-e2e92c22fc10

@@ -1,0 +1,2 @@
+Single Table Inheritance (STI): Un solo users con una columna role ('doctor', 'patient', 'developer'), y todos los campos en la misma tabla (puede generar muchos NULLs).
+Table Per Concrete Class (TPC): No hay tabla users, cada tipo de usuario tiene su tabla independiente (puede generar duplicación de datos).

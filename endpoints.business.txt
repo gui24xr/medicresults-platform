@@ -1,0 +1,10 @@
+POST api/medics/patients -> Medico crea paciente
+PUT api/medics/patients/:pid -> Medico modifica datos de paciente.
+DELETE api/medics/patients/:pid -> Medico borra paciente y sus estudios.
+POST api/medic/studies -> Medico crea studio
+PUT api/medics/studies/:sid -> Medico modifica estudio
+DELETE api/medics/studies/:sid -> Medico borra estudio
+GET  api/medics/studies -> Medico obtiene estudio
+POST api/medics/studies/:sid/qr ->Envia qr a whatsapp e email del paciente
+POST api/medics/studies/:sid/email ->Envia email con qr para acceder al estudio 
+POST api/patients/studies -> Paciente accede al url para hacer click y ver el estudio, si todo sale ok se le rednderiza la pagina deonde se ve el estudio
