@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { PatientsRepository } from "@/app/libs/repositories/patients.repositories";
+import { PatientsRepository } from "@/app/libs/repositories/patients.repository";
+import {z} from 'zod'
 
 interface Params{
     params: {
@@ -12,6 +13,7 @@ const patientsRepository = PatientsRepository.getInstance()
 export async function GET(request: Request,{ params }:Params) {
     try{
         const {id} = await params
+        z.string().uuid().parse(id);
         const foundedPatient = await patientsRepository.getPatientById(id)
         if (!foundedPatient) return NextResponse.json({message: 'Patient Not Found'},{status: 404})
         return NextResponse.json(foundedPatient)
@@ -28,6 +30,7 @@ export async function PUT(request:Request,{params}:Params) {
     try{
         const {id} = await params
         const data = await request.json()
+        z.string().uuid().parse(id);
         const updatedPatient = await patientsRepository.updatePatientById(id,data)
         return NextResponse.json(updatedPatient)
     }catch(error:any){
@@ -42,6 +45,7 @@ export async function PUT(request:Request,{params}:Params) {
 export async function DELETE(request:Request,{params}:Params) {
     try{
         const {id} = await params
+        z.string().uuid().parse(id);
         const deletedPatient = await patientsRepository.deletePatientById(id)
         return NextResponse.json(deletedPatient)
     }catch(error:any){

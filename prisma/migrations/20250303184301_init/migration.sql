@@ -2,7 +2,7 @@
 CREATE TABLE "User" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "email" TEXT NOT NULL,
-    "role" TEXT NOT NULL DEFAULT 'DEV',
+    "role" TEXT NOT NULL DEFAULT 'dev',
     "relatedId" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -32,27 +32,20 @@ CREATE TABLE "Patient" (
 );
 
 -- CreateTable
-CREATE TABLE "Study" (
+CREATE TABLE "MedicalTest" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "date" DATETIME,
     "medicId" TEXT NOT NULL,
     "patientId" TEXT NOT NULL,
+    "diagnosticType" TEXT NOT NULL,
     "diagnosticText" TEXT,
     "accessCode" TEXT,
     "pdfUrl" TEXT,
+    "imagesFolderUrl" TEXT,
     "expirationDate" DATETIME,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT "Study_medicId_fkey" FOREIGN KEY ("medicId") REFERENCES "Medic" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "Study_patientId_fkey" FOREIGN KEY ("patientId") REFERENCES "Patient" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
-);
-
--- CreateTable
-CREATE TABLE "ImagesURL" (
-    "id" TEXT NOT NULL PRIMARY KEY,
-    "studyId" TEXT NOT NULL,
-    "url" TEXT NOT NULL,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT "ImagesURL_studyId_fkey" FOREIGN KEY ("studyId") REFERENCES "Study" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "MedicalTest_medicId_fkey" FOREIGN KEY ("medicId") REFERENCES "Medic" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "MedicalTest_patientId_fkey" FOREIGN KEY ("patientId") REFERENCES "Patient" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateIndex

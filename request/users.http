@@ -1,0 +1,27 @@
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "email":"email02@gmail.com",
+    "role": "medic",
+    "relatedId": "gertgg43546"
+}
+
+###
+GET http://localhost:3000/api/users
+
+###
+GET http://localhost:3000/api/users/1ebe6aeb-fbd6-4743-9c18-ba9764171012
+
+###
+PUT http://localhost:3000/api/users/1ebe6aeb-fbd6-4743-9c18-ba9764171012
+Content-Type: application/json
+
+{
+    "email":"email02UPD@gmail.com",
+    "role": "medic",
+    "relatedId": "gertgg43546"
+}
+
+###
+DELETE http://localhost:3000/api/users/1ebe6aeb-fbd6-4743-9c18-ba9764171012

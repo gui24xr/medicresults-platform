@@ -1,4 +1,4 @@
-import { prismaClient } from "../prisma.ts";
+import { prismaClient } from "../prisma";
 import { Medic } from "@prisma/client";
 
 interface MedicData {
