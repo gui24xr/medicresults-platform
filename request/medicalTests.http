@@ -1,0 +1,40 @@
+POST http://localhost:3000/api/medicaltests
+Content-Type: application/json
+
+{
+  "date": "2029-03-03T14:30:00.000Z",
+  "medicId": "98818856-55e3-4923-9fab-ce915b84ad58",
+  "patientId": "7824bcd6-94a6-4100-9efc-a49731b230af",
+  "diagnosticType": "imaging",
+  "diagnosticText": "Fractura en el radio derecho",
+  "accessCode": "ABC123",
+  "pdfUrl": "https://example.com/reports/medicaltest-123.pdf",
+  "imagesFolderUrl": "https://example.com/images/medicaltest-123",
+  "expirationDate": "2026-03-03T14:30:00.000Z"
+}
+
+
+###
+GET http://localhost:3000/api/medicaltests
+
+###
+GET http://localhost:3000/api/medicaltests/a9e45fee-c24d-43a4-b97a-7c4b907f44ec
+
+###
+DELETE http://localhost:3000/api/medicaltests/cf613eb1-10e3-4286-a751-5702450bd310
+
+###
+PUT http://localhost:3000/api/medicaltests/a9e45fee-c24d-43a4-b97a-7c4b907f44ec
+Content-Type: application/json
+
+{
+  "date": "2031-03-03T14:30:00.000Z",
+  "medicId": "98818856-55e3-4923-9fab-ce915b84ad58",
+  "patientId": "7824bcd6-94a6-4100-9efc-a49731b230af",
+  "diagnosticType": "imaging",
+  "diagnosticText": "Fractura en el radio derecho",
+  "accessCode": "ABC123",
+  "pdfUrl": "https://example.com/reports/medicaltest-123.pdf",
+  "imagesFolderUrl": "https://example.com/images/medicaltest-123",
+  "expirationDate": "2026-03-03T14:30:00.000Z"
+}

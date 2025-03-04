@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
     "email":"email02@gmail.com",
-    "role": "medic",
-    "relatedId": "gertgg43546"
+    "role": "medic"
+    
 }
 
 ###
@@ -24,4 +24,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/api/users/1ebe6aeb-fbd6-4743-9c18-ba9764171012
+DELETE http://localhost:3000/api/users/6ec2a378-8b09-4162-8b4a-8de8710ba811
